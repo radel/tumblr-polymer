@@ -1,0 +1,20 @@
+{
+  "name": "test-project",
+  "version": "0.0.0",
+  "dependencies": {
+    "paper-elements": "Polymer/paper-elements#^0.5.1",
+    "polymer": "Polymer/polymer#^0.5.4",
+    "polymer-elements": "~0.3.0",
+    "core-image": "Polymer/core-image#^0.5",
+    "core-list": "Polymer/core-list#^0.5"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^2.2.3"
+  },
+  "resolutions": {
+    "core-component-page": "^0.5",
+    "web-animations-js": "1.0.5",
+    "polymer": "^0.5.0",
+    "platform": "^0.4.0"
+  }
+}

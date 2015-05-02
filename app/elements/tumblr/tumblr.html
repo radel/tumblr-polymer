@@ -1,0 +1,48 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-shared-lib/core-shared-lib.html">
+<link rel="import" href="../../bower_components/core-list/core-list.html">
+<link rel="import" href="../../bower_components/core-image/core-image.html">
+
+
+<polymer-element name="tumblr-model" attributes="posts info">
+  <template>
+    <core-shared-lib url="http://api.tumblr.com/v2/blog/{{tumblr_url}}/posts?api_key={{api_key}}&callback=%%callback%%" auto on-core-shared-lib-load="{{ajaxPostResp}}">
+    </core-shared-lib>
+
+
+<template repeat="{{s in posts}}">
+  <a href="{{s.post_url}}">
+    <template repeat="{{photo in s.photos}}">
+      <core-image style="width:33%; height:300px;" sizing="cover"
+      src="{{photo.alt_sizes[2].url}}"></core-image>
+    </template>
+  </a>
+</template>
+
+</template>
+
+  <script>
+    (function () {
+      Polymer('tumblr-model',{
+
+        // tumblr api key, you have to use your own
+
+        api_key : 'pKxlLiDDWHpPaZeed9Vq9BaO8fxtSL4lc8Qeyve5Q0r13hF6aQ',
+
+        // your tumblr url
+        tumblr_url : 'tumblr.bazinga.it',
+
+        ready: function () {
+          _this = this;
+          _this.posts = [];
+          _this.info = [];
+        },
+
+        ajaxPostResp: function (e) {
+          _this.info = e.detail[1][0].response.blog;
+          _this.posts = e.detail[1][0].response.posts;
+        }
+      });
+    })();
+  </script>
+</polymer-element>
