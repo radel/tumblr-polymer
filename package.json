@@ -1,7 +1,9 @@
 {
   "name": "test-project",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "stream-transform": "0.0.7"
+  },
   "devDependencies": {
     "web-component-tester": "^2.2.3",
     "apache-server-configs": "^2.7.1",
