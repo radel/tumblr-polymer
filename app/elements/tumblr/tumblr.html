@@ -32,16 +32,23 @@
 
         // your tumblr url
         tumblrUrl : 'tumblr.bazinga.it',
+
         ready: function () {
-          _this = this;
-          _this.posts = [];
-          _this.info = [];
+          this.posts = [];
+          this.info = [];
         },
 
-        ajaxPostResp: function (e) {
-          _this.info = e.detail[1][0].response.blog;
-          _this.posts = e.detail[1][0].response.posts;
+        ajaxPostResp: function (e, detail) {
+          var info = e.detail[1][0].response.blog;
+          var posts = e.detail[1][0].response.posts;
+          this.tumblrData(info,posts);
+        },
+
+        tumblrData: function(info,posts) {
+          this.info = info;
+          this.posts = posts;
         }
+
       });
     })();
   </script>
