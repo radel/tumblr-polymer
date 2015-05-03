@@ -6,7 +6,7 @@
 
 <polymer-element name="tumblr-model" attributes="posts info">
   <template>
-    <core-shared-lib url="http://api.tumblr.com/v2/blog/{{tumblr_url}}/posts?api_key={{api_key}}&callback=%%callback%%" auto on-core-shared-lib-load="{{ajaxPostResp}}">
+    <core-shared-lib url="http://api.tumblr.com/v2/blog/{{tumblrUrl}}/posts?api_key={{apiKey}}&callback=%%callback%%" auto on-core-shared-lib-load="{{ajaxPostResp}}">
     </core-shared-lib>
 
 
@@ -23,15 +23,15 @@
 
   <script>
     (function () {
+      var _this;
       Polymer('tumblr-model',{
 
         // tumblr api key, you have to use your own
 
-        api_key : 'pKxlLiDDWHpPaZeed9Vq9BaO8fxtSL4lc8Qeyve5Q0r13hF6aQ',
+        apiKey : 'pKxlLiDDWHpPaZeed9Vq9BaO8fxtSL4lc8Qeyve5Q0r13hF6aQ',
 
         // your tumblr url
-        tumblr_url : 'tumblr.bazinga.it',
-
+        tumblrUrl : 'tumblr.bazinga.it',
         ready: function () {
           _this = this;
           _this.posts = [];
